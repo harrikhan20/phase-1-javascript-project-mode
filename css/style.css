@@ -2,3 +2,17 @@ h1 {
     text-align: center;
     
 }
+
+
+h2 {
+text-align: center;
+
+}
+
+#state-dropdown {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+}
