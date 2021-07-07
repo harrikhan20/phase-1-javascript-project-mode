@@ -1,8 +1,16 @@
-const dogResult = document.getElementById('#dog_result')
-const dog_pic_butn = document.getElementById('#dog_pic_butn');
-const LikeButton = document.getElementById('#like_butn');
+document.addEventListener('DOMContentLoaded', function() {
+const dogResult = document.getElementById('dogResult')
+const catResult = document.getElementById('catResult')
+const dogPicButton = document.getElementById('dogButton');
+const CatPicButton = document.getElementById('catButton');
+const refreshButton = document.getElementById('refreshButton');
 
-dog_pic_butn.addEventListener(click, getRandomDog)
+//document.addEventListener('DOMContentLoaded', function() {
+dogPicButton.addEventListener('click', getRandomDog)
+CatPicButton.addEventListener('click', getRandomCat)
+refreshButton.addEventListener('click', refreshpage)
+
+//})
 
 
 function getRandomDog() {
@@ -13,8 +21,26 @@ function getRandomDog() {
                 getRandomDog()
             } else {
 
-                dogResult.innerHTML = `img src="${data.url}"/>` 
+                dogResult.innerHTML =`<img src=${data.url}>` 
+            
             }
+
             
         })
-}
+    }
+
+    function getRandomCat() {
+        fetch('https://aws.random.cat/meow')
+        .then(res => res.json())
+        .then(data => {
+            catResult.innerHTML =`<img src=${data.file}>`;
+       
+        })
+    }
+
+    function refreshpage(){
+        location.reload();
+    }
+})
+
+
